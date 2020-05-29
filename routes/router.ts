@@ -3,9 +3,21 @@ import { Router, Request, Response } from 'express';
 import Server from '../classes/server';
 import { usuariosConectados } from '../sockets/socket';
 import { GraficaData } from '../classes/grafica';
+import { Mapa } from '../classes/mapa';
 
 const router = Router();
 
+const mapa = new Mapa();
+
+// Mapa
+router.get('/mapa', (req: Request, res: Response ) => {
+    res.json( mapa.getMarcadores() );
+});
+
+
+
+
+// Ejercicios encuesta y gráfica
 const grafica = new GraficaData();
 
 router.get('/grafica', (req: Request, res: Response ) => {
