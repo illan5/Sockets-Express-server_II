@@ -24,6 +24,11 @@ export const mapaSockets = ( cliente: Socket, io: socketIO.Server ) => {
         cliente.broadcast.emit( 'marcador-borrar', id );
     } );
 
+    cliente.on( 'marcador-mover', ( marcador: Marcador ) => {
+        mapa.moverMarcador( marcador );
+        cliente.broadcast.emit( 'marcador-mover', marcador );
+    } );
+
 }
 
 
