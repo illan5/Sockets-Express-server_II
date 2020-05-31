@@ -1,13 +1,12 @@
 
 import { Router, Request, Response } from 'express';
 import Server from '../classes/server';
-import { usuariosConectados } from '../sockets/socket';
+import { usuariosConectados, mapa } from '../sockets/socket';
 import { GraficaData } from '../classes/grafica';
 import { Mapa } from '../classes/mapa';
 
 const router = Router();
 
-const mapa = new Mapa();
 
 // Mapa
 router.get('/mapa', (req: Request, res: Response ) => {
